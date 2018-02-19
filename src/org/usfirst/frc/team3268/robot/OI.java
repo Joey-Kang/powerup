@@ -7,6 +7,10 @@
 
 package org.usfirst.frc.team3268.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +43,18 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	public static Joystick stickLeft 	= new Joystick(0);
+	public static Joystick stickRight	= new Joystick(1);
+	public static Joystick controller	= new Joystick(2);
+	
+	public static Button buttonShooterTop 	= new JoystickButton(controller, 5);
+	public static Button buttonShooterBottom 	= new JoystickButton(controller, 6);
+	
+	public OI() {
+		
+		buttonShooterTop	.whenPressed(null);
+		buttonShooterBottom	.whenPressed(null);
+		
+	}
 }

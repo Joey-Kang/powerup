@@ -7,13 +7,16 @@
 
 package org.usfirst.frc.team3268.robot;
 
+import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3268.robot.subsystems.DriveBaseSubsystem;
+import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
+import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3268.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,20 +26,28 @@ import org.usfirst.frc.team3268.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
-	public static OI m_oi;
+	
+	// OI & subsystems
+	public static final DriveBaseSubsystem driveSubsystem = new DriveBaseSubsystem();
+	public static final ShooterWheelsSubsystem shooterSubsystem = new ShooterWheelsSubsystem();
+	public static final ShooterPneumaticsSubsystem shooterPneumaticsSubsystem = new ShooterPneumaticsSubsystem();
+	public static OI oi;
 
+	// smartDashboard & other chooser stuff
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	@Override
 	public void robotInit() {
-		m_oi = new OI();
+		
+		oi = new OI();
+		
+		/* Autonomous Initiation & Declaration */
+		
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
@@ -47,12 +58,10 @@ public class Robot extends TimedRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
-	@Override
 	public void disabledInit() {
 
 	}
 
-	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
@@ -68,7 +77,6 @@ public class Robot extends TimedRobot {
 	 * chooser code above (like the commented example) or additional comparisons
 	 * to the switch structure below with additional strings & commands.
 	 */
-	@Override
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
 
@@ -88,12 +96,10 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during autonomous.
 	 */
-	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
-	@Override
 	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
@@ -107,7 +113,6 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during operator control.
 	 */
-	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 	}
@@ -115,7 +120,7 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during test mode.
 	 */
-	@Override
 	public void testPeriodic() {
 	}
+
 }
