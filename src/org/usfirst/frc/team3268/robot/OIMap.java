@@ -11,8 +11,8 @@ public class OIMap {
 	
 	public static int buttonShooterTop			= 5;
 	public static int buttonShooterBottom		= 6;
-	public static int buttonShooterMoveUp		= 3;
-	public static int buttonShooterMoveDown		= 1;
+	public static int buttonShooterMoveUp		= 1;
+	public static int buttonShooterMoveDown		= 3;
 	
 	public static int buttonDriveReverse 	= 2;
 	
