@@ -7,11 +7,6 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.shooter.ShooterBottomStartCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ShooterBottomStopCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ShooterTopStartCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ShooterTopStopCommand;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -60,10 +55,12 @@ public class OI {
 	
 	public OI() {
 		
-		buttonShooterTop	.whenPressed	(new ShooterTopStartCommand());
-		buttonShooterTop	.whenReleased	(new ShooterTopStopCommand());
-		buttonShooterBottom	.whenPressed	(new ShooterBottomStartCommand());
-		buttonShooterBottom	.whenReleased	(new ShooterBottomStopCommand());
-		
+	}
+	
+	public static double shooterTopSpeed() {
+		return -controller.getRawAxis(2);
+	}
+	public static double shooterBottomSpeed() {
+		return -controller.getRawAxis(3);
 	}
 }

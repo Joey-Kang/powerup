@@ -22,8 +22,8 @@ public class RobotMap {
 	public static int PWM_driveRightFront 	= 1;
 	public static int PWM_driveRightBack 	= 0;
 	
-	public static int PWM_shooterTopLeft 		= 7;
-	public static int PWM_shooterBottomLeft		= 6;
+	public static int PWM_shooterTopLeft 		= 6;
+	public static int PWM_shooterBottomLeft		= 7;
 	public static int PWM_shooterTopRight		= 3;
 	public static int PWM_shooterBottomRight	= 2;
 	
