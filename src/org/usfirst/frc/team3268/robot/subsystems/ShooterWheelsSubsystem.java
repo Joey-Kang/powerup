@@ -12,7 +12,6 @@ import org.usfirst.frc.team3268.robot.RobotMap;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * Used to declare and manipulate the four wheeled motors on the shooter mechanism.
@@ -25,7 +24,6 @@ public class ShooterWheelsSubsystem extends Subsystem {
 	Talon Talon_shooterBottomRight;
 	SpeedControllerGroup ControllerGroup_shooterTop;
 	SpeedControllerGroup ControllerGroup_shooterBottom;
-	DifferentialDrive DifferentialDrive_shooter;
 	
 	public ShooterWheelsSubsystem() {
 		// all declaration of actual stuff
@@ -35,7 +33,13 @@ public class ShooterWheelsSubsystem extends Subsystem {
 		Talon_shooterBottomRight 	= new Talon(RobotMap.PWM_shooterBottomRight);
 		ControllerGroup_shooterTop	= new SpeedControllerGroup(Talon_shooterTopLeft, Talon_shooterTopRight);
 		ControllerGroup_shooterBottom	= new SpeedControllerGroup(Talon_shooterBottomLeft, Talon_shooterBottomRight);
-		DifferentialDrive_shooter = new DifferentialDrive(ControllerGroup_shooterTop, ControllerGroup_shooterBottom);
+	}
+	
+	public void setTop(double speed) {
+		ControllerGroup_shooterTop.set(speed);
+	}
+	public void setBottom(double speed) {
+		ControllerGroup_shooterBottom.set(speed);
 	}
 	
 	public void initDefaultCommand() {
