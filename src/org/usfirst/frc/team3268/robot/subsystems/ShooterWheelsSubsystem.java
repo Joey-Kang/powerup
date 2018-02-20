@@ -32,7 +32,7 @@ public class ShooterWheelsSubsystem extends Subsystem {
 		Talon_shooterTopRight 	= new Talon(RobotMap.PWM_shooterTopRight);
 		Talon_shooterBottomLeft	= new Talon(RobotMap.PWM_shooterBottomLeft);
 		Talon_shooterBottomRight 	= new Talon(RobotMap.PWM_shooterBottomRight);
-		Talon_shooterTopLeft.setInverted(true);
+		Talon_shooterTopRight.setInverted(true);
 		Talon_shooterBottomLeft.setInverted(true);
 		ControllerGroup_shooterTop	= new SpeedControllerGroup(Talon_shooterTopLeft, Talon_shooterTopRight);
 		ControllerGroup_shooterBottom	= new SpeedControllerGroup(Talon_shooterBottomLeft, Talon_shooterBottomRight);
