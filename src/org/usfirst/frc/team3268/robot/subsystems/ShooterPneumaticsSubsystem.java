@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team3268.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,9 +18,34 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
-
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+	
+	
+	Compressor compressor = new Compressor();
+	DoubleSolenoid shooterPiston = new DoubleSolenoid(0,1);
+	
+	public ShooterPneumaticsSubsystem() {
+		compressor.setClosedLoopControl(true);
 	}
+	
+	public void initDefaultCommand() {
+		setDefaultCommand(null);
+	}
+	
+	public void startCompressor() {
+		compressor.start();
+	}
+	public void stopCompressor() {
+		compressor.stop();
+	}
+	
+	public void extendShooterPiston() {
+		shooterPiston.set(Value.kForward);
+	}
+	public void retractShooterPiston() {
+		shooterPiston.set(Value.kReverse);
+	}
+	public void stopShooterPiston() {
+		shooterPiston.set(Value.kOff);
+	}
+	
 }

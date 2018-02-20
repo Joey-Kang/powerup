@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team3268.robot;
 
+import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -54,6 +57,7 @@ public class OI {
 	public static Button buttonRaiseShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveUp);
 	
 	public OI() {
-		
+		buttonLowerShooter.whenPressed(new LowerShooterCommand());
+		buttonRaiseShooter.whenPressed(new RaiseShooterCommand());
 	}
 }
