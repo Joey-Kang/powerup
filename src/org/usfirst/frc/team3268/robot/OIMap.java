@@ -14,4 +14,6 @@ public class OIMap {
 	public static int buttonShooterMoveUp		= 3;
 	public static int buttonShooterMoveDown		= 1;
 	
+	public static int buttonDriveReverse 	= 2;
+	
 }

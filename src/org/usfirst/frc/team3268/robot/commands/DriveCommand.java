@@ -27,7 +27,8 @@ public class DriveCommand extends Command {
 	protected void execute() {
 		Robot.driveSubsystem.tankDrive(
 				OI.controller.getRawAxis(OIMap.axisDriveLeft), 
-				OI.controller.getRawAxis(OIMap.axisDriveRight));
+				OI.controller.getRawAxis(OIMap.axisDriveRight),
+				OI.controller.getRawButton(OIMap.buttonDriveReverse));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
