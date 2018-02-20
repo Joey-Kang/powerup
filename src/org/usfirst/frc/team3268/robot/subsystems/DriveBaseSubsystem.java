@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot.subsystems;
 
 import org.usfirst.frc.team3268.robot.RobotMap;
+import org.usfirst.frc.team3268.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
@@ -38,11 +39,15 @@ public class DriveBaseSubsystem extends Subsystem {
 		DifferentialDrive_drive = new DifferentialDrive(ControllerGroup_driveLeft, ControllerGroup_driveRight);
 	}
 	
-	public void drive() {
-		
+	public void tankDrive(double left, double right) {
+		DifferentialDrive_drive.tankDrive(left, right);
+	}
+	
+	public void arcadeDrive(double speed, double heading) {
+		DifferentialDrive_drive.arcadeDrive(speed, heading);
 	}
 	
 	public void initDefaultCommand() {
-		
+		setDefaultCommand(new DriveCommand());
 	}
 }

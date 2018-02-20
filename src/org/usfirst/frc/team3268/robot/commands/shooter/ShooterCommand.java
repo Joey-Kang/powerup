@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot.commands.shooter;
 
 import org.usfirst.frc.team3268.robot.OI;
+import org.usfirst.frc.team3268.robot.OIMap;
 import org.usfirst.frc.team3268.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,8 +30,8 @@ public class ShooterCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.shooterSubsystem.setTop(OI.shooterTopSpeed());
-		Robot.shooterSubsystem.setBottom(OI.shooterBottomSpeed());
+		Robot.shooterSubsystem.setTop(OI.controller.getRawAxis(OIMap.axisShooterTop));
+		Robot.shooterSubsystem.setBottom(OI.controller.getRawAxis(OIMap.axisShooterBottom));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

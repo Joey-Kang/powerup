@@ -48,19 +48,12 @@ public class OI {
 	public static Joystick stickRight	= new Joystick(1);
 	public static Joystick controller	= new Joystick(2);
 	
-	public static Button buttonShooterTop 		= new JoystickButton(controller, 5);
-	public static Button buttonShooterBottom 	= new JoystickButton(controller, 6);
-	public static Button buttonLowerShooter 	= new JoystickButton(controller, 1);
-	public static Button buttonRaiseShooter 	= new JoystickButton(controller, 3);
+	public static Button buttonShooterTop 		= new JoystickButton(controller, OIMap.buttonShooterTop);
+	public static Button buttonShooterBottom 	= new JoystickButton(controller, OIMap.buttonShooterBottom);
+	public static Button buttonLowerShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveDown);
+	public static Button buttonRaiseShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveUp);
 	
 	public OI() {
 		
-	}
-	
-	public static double shooterTopSpeed() {
-		return -controller.getRawAxis(2);
-	}
-	public static double shooterBottomSpeed() {
-		return -controller.getRawAxis(3);
 	}
 }
