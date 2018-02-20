@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
 	
 	// OI & subsystems
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
-	public static final ShooterWheelsSubsystem shooterSubsystem = new ShooterWheelsSubsystem();
+	public static final ShooterWheelsSubsystem shooterWheelsSubsystem = new ShooterWheelsSubsystem();
 	public static final ShooterPneumaticsSubsystem shooterPneumaticsSubsystem = new ShooterPneumaticsSubsystem();
 	public static OI oi;
 

@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.shooter;
+package org.usfirst.frc.team3268.robot.commands;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.OIMap;
@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShooterCommand extends Command {
 	public ShooterCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterSubsystem);
+		requires(Robot.shooterWheelsSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -30,8 +30,8 @@ public class ShooterCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.shooterSubsystem.setTop(OI.controller.getRawAxis(OIMap.axisShooterTop));
-		Robot.shooterSubsystem.setBottom(OI.controller.getRawAxis(OIMap.axisShooterBottom));
+		Robot.shooterWheelsSubsystem.setTop(OI.controller.getRawAxis(OIMap.axisShooterTop));
+		Robot.shooterWheelsSubsystem.setBottom(OI.controller.getRawAxis(OIMap.axisShooterBottom));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
