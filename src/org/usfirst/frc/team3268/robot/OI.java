@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team3268.robot;
 
+import org.usfirst.frc.team3268.robot.commands.butterfly.CloseWingsCommand;
+import org.usfirst.frc.team3268.robot.commands.butterfly.OpenWingsCommand;
 import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.complex.SlamFireCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
@@ -65,8 +67,11 @@ public class OI {
 	public static Button buttonChargeShooterBottom 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterBottom);
 	public static Button buttonFireShooter 			= new JoystickButton(rightStick, OIMap.buttonFireShooter);
 	
-	public static Button buttonFireUpCommand = new JoystickButton(rightStick, 11);
-	public static Button buttonSlamFireCommand = new JoystickButton(rightStick, 12);
+	public static Button buttonFireUp = new JoystickButton(rightStick, 11);
+	public static Button buttonSlamFire = new JoystickButton(rightStick, 12);
+	
+	public static Button buttonOpenWings = new JoystickButton(controller,5);
+	public static Button buttonCloseWings = new JoystickButton(controller,6);
 	
 	public OI() {
 		
@@ -80,8 +85,11 @@ public class OI {
 		
 		buttonFireShooter.whenPressed(new FireShooterCommand());
 		
-		buttonFireUpCommand.whenPressed(new FireUpCommandGroup());
-		buttonSlamFireCommand.whenPressed(new SlamFireCommandGroup());
+		buttonFireUp.whenPressed(new FireUpCommandGroup());
+		buttonSlamFire.whenPressed(new SlamFireCommandGroup());
+		
+		buttonOpenWings.whenPressed(new OpenWingsCommand());
+		buttonCloseWings.whenPressed(new CloseWingsCommand());
 		
 	}
 }

@@ -26,6 +26,7 @@ public class SlamFireCommandGroup extends CommandGroup {
 		addParallel(new ChargeShooterTopCommand());
 		addParallel(new ChargeShooterBottomCommand());
 		addSequential(new LowerShooterCommand());
+		
 		addSequential(new StopShooterCommand());
 	}
 	

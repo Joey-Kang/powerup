@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot;
 
 import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3268.robot.subsystems.ButterflyWingsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ShooterWheelsSubsystem shooterWheelsSubsystem = new ShooterWheelsSubsystem();
 	public static final ShooterPneumaticsSubsystem shooterPneumaticsSubsystem = new ShooterPneumaticsSubsystem();
+	public static final ButterflyWingsSubsystem butterflyWingsSubsystem = new ButterflyWingsSubsystem();
 	public static OI oi;
 
 	// smartDashboard & other chooser stuff
