@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot;
 
 import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
+import org.usfirst.frc.team3268.robot.commands.complex.SlamFireCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterBottomCommand;
@@ -65,6 +66,7 @@ public class OI {
 	public static Button buttonFireShooter 			= new JoystickButton(rightStick, OIMap.buttonFireShooter);
 	
 	public static Button buttonFireUpCommand = new JoystickButton(rightStick, 11);
+	public static Button buttonSlamFireCommand = new JoystickButton(rightStick, 12);
 	
 	public OI() {
 		
@@ -79,6 +81,7 @@ public class OI {
 		buttonFireShooter.whenPressed(new FireShooterCommand());
 		
 		buttonFireUpCommand.whenPressed(new FireUpCommandGroup());
+		buttonSlamFireCommand.whenPressed(new SlamFireCommandGroup());
 		
 	}
 }
