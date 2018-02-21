@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ShooterWheelsSubsystem extends Subsystem {
 	
-	public static final double FIRING_TIME = 0.25;
+	public static final double FIRING_TIME = 1.0;
 	
 	Talon Talon_shooterTopLeft;
 	Talon Talon_shooterTopRight;
