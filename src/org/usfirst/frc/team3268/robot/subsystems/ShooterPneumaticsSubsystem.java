@@ -41,12 +41,14 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	public void setShooterPosition(Position value) {
 		switch(value) {
 		case UP:
-			if (position != Position.UP) shooterPiston.set(Value.kReverse);
-			else shooterPiston.set(Value.kOff);
+//			if (position != Position.UP) 
+				shooterPiston.set(Value.kReverse);
+//			else shooterPiston.set(Value.kOff);
 			break;
 		case DOWN:
-			if (position != Position.DOWN) shooterPiston.set(Value.kForward);
-			else shooterPiston.set(Value.kOff);
+//			if (position != Position.DOWN) 
+				shooterPiston.set(Value.kForward);
+//			else shooterPiston.set(Value.kOff);
 			break;
 		default:
 			shooterPiston.set(Value.kOff);
