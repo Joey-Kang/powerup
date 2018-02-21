@@ -7,13 +7,7 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.MoveShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterBottomCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.FireShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterBottomCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterTopCommand;
 import org.usfirst.frc.team3268.robot.subsystems.Position;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -54,31 +48,31 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	public static Joystick leftStick 	= new Joystick(0);
-	public static Joystick stickRight	= new Joystick(1);
+	public static Joystick rightStick	= new Joystick(1);
 	public static Joystick controller	= new Joystick(2);
 	
 	public static Button buttonLowerShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveDown);
 	public static Button buttonRaiseShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveUp);
 	
-	public static Button buttonChargeShooterTop 	= new JoystickButton(stickRight, OIMap.buttonChargeShooterTop);
-	public static Button buttonChargeShooterBottom 	= new JoystickButton(stickRight, OIMap.buttonChargeShooterBottom);
-	public static Button buttonFireShooter 			= new JoystickButton(stickRight, OIMap.buttonFireShooter);
+	public static Button buttonChargeShooterTop 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterTop);
+	public static Button buttonChargeShooterBottom 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterBottom);
+	public static Button buttonFireShooter 			= new JoystickButton(rightStick, OIMap.buttonFireShooter);
 	
-	public static Button buttonFireUpCommand = new JoystickButton(stickRight, 11);
+	public static Button buttonFireUpCommand = new JoystickButton(rightStick, 11);
 	
 	public OI() {
 		
 		buttonLowerShooter.whenPressed(new MoveShooterCommand(Position.DOWN));
 		buttonRaiseShooter.whenPressed(new MoveShooterCommand(Position.UP));
 		
-		buttonChargeShooterTop.whenPressed(new ChargeShooterTopCommand());
-		buttonChargeShooterTop.whenReleased(new StopShooterTopCommand());
-		buttonChargeShooterBottom.whenPressed(new ChargeShooterBottomCommand());
-		buttonChargeShooterBottom.whenReleased(new StopShooterBottomCommand());
-		
-		buttonFireShooter.whenPressed(new FireShooterCommand());
-		
-		buttonFireUpCommand.whenPressed(new FireUpCommandGroup());
+//		buttonChargeShooterTop.whenPressed(new ChargeShooterTopCommand());
+//		buttonChargeShooterTop.whenReleased(new StopShooterTopCommand());
+//		buttonChargeShooterBottom.whenPressed(new ChargeShooterBottomCommand());
+//		buttonChargeShooterBottom.whenReleased(new StopShooterBottomCommand());
+//		
+//		buttonFireShooter.whenPressed(new FireShooterCommand());
+//		
+//		buttonFireUpCommand.whenPressed(new FireUpCommandGroup());
 		
 	}
 }

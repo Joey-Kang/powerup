@@ -8,9 +8,7 @@
 package org.usfirst.frc.team3268.robot;
 
 import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.MoveShooterCommand;
 import org.usfirst.frc.team3268.robot.subsystems.DriveSubsystem;
-import org.usfirst.frc.team3268.robot.subsystems.Position;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
 
