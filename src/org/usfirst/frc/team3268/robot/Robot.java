@@ -111,8 +111,8 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 		}
 		
-		new MoveShooterCommand(Position.UP).start();
-		shooterPneumaticsSubsystem.position = Position.UP;
+//		new MoveShooterCommand(Position.UP).start();
+//		shooterPneumaticsSubsystem.position = Position.UP;
 		
 	}
 
