@@ -60,8 +60,8 @@ public class OI {
 	public static Joystick rightStick	= new Joystick(1);
 	public static Joystick controller	= new Joystick(2);
 	
-	public static Button buttonLowerShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveDown);
-	public static Button buttonRaiseShooter 	= new JoystickButton(controller, OIMap.buttonShooterMoveUp);
+	public static Button buttonLowerShooter 	= new JoystickButton(leftStick, 3);
+	public static Button buttonRaiseShooter 	= new JoystickButton(leftStick, 2);
 	
 	public static Button buttonChargeShooterTop 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterTop);
 	public static Button buttonChargeShooterBottom 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterBottom);
