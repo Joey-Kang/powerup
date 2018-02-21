@@ -19,7 +19,7 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
-	
+	public Position position = null;
 	Compressor compressor = new Compressor();
 	DoubleSolenoid shooterPiston = new DoubleSolenoid(0,1);
 	
@@ -38,14 +38,20 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 		compressor.stop();
 	}
 	
-	public void extendShooterPiston() {
-		shooterPiston.set(Value.kForward);
-	}
-	public void retractShooterPiston() {
-		shooterPiston.set(Value.kReverse);
-	}
-	public void stopShooterPiston() {
-		shooterPiston.set(Value.kOff);
+	public void setShooterPosition(Position value) {
+		switch(value) {
+		case UP:
+			if (position != Position.UP) shooterPiston.set(Value.kReverse);
+			else shooterPiston.set(Value.kOff);
+			break;
+		case DOWN:
+			if (position != Position.DOWN) shooterPiston.set(Value.kForward);
+			else shooterPiston.set(Value.kOff);
+			break;
+		default:
+			shooterPiston.set(Value.kOff);
+			break;
+		}
 	}
 	
 }

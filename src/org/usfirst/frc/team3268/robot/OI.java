@@ -7,13 +7,14 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
+import org.usfirst.frc.team3268.robot.commands.pneumatic.MoveShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterBottomCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.FireShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterBottomCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterTopCommand;
+import org.usfirst.frc.team3268.robot.subsystems.Position;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -63,10 +64,12 @@ public class OI {
 	public static Button buttonChargeShooterBottom 	= new JoystickButton(stickRight, OIMap.buttonChargeShooterBottom);
 	public static Button buttonFireShooter 			= new JoystickButton(stickRight, OIMap.buttonFireShooter);
 	
+	public static Button buttonFireUpCommand = new JoystickButton(stickRight, 11);
+	
 	public OI() {
 		
-		buttonLowerShooter.whenPressed(new LowerShooterCommand());
-		buttonRaiseShooter.whenPressed(new RaiseShooterCommand());
+		buttonLowerShooter.whenPressed(new MoveShooterCommand(Position.DOWN));
+		buttonRaiseShooter.whenPressed(new MoveShooterCommand(Position.UP));
 		
 		buttonChargeShooterTop.whenPressed(new ChargeShooterTopCommand());
 		buttonChargeShooterTop.whenReleased(new StopShooterTopCommand());
@@ -74,6 +77,8 @@ public class OI {
 		buttonChargeShooterBottom.whenReleased(new StopShooterBottomCommand());
 		
 		buttonFireShooter.whenPressed(new FireShooterCommand());
+		
+		buttonFireUpCommand.whenPressed(new FireUpCommandGroup());
 		
 	}
 }
