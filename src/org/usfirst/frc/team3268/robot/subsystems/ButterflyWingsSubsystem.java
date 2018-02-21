@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ButterflyWingsSubsystem extends Subsystem {
 	
-	public static final double WING_SPEED = 0.25;
+	public static final double WING_SPEED = 0.3;
 	public static final double MOVEMENT_TIME = 0.5;
 	
 	Talon leftWing;
@@ -25,6 +25,7 @@ public class ButterflyWingsSubsystem extends Subsystem {
 	
 	public ButterflyWingsSubsystem() {
 		leftWing = new Talon(5);
+		leftWing.setInverted(true);
 		rightWing = new Talon(4);
 		butterflyWings = new SpeedControllerGroup(leftWing, rightWing);
 	}
