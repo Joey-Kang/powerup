@@ -22,7 +22,7 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	public static final double TRAVEL_TIME = 2.0;
 	
 	Compressor compressor = new Compressor();
-	DoubleSolenoid shooterPiston = new DoubleSolenoid(0,1);
+	DoubleSolenoid shooterPiston = new DoubleSolenoid(2,1);
 	
 	public ShooterPneumaticsSubsystem() {
 		compressor.setClosedLoopControl(true);
