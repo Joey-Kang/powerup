@@ -7,11 +7,11 @@
 
 package org.usfirst.frc.team3268.robot.commands.complex;
 
-import org.usfirst.frc.team3268.robot.commands.pneumatic.MoveShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.FireShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterCommand;
-import org.usfirst.frc.team3268.robot.subsystems.Position;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -21,9 +21,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class FireUpCommandGroup extends CommandGroup {
 	
 	public FireUpCommandGroup() {
-		addSequential(new MoveShooterCommand(Position.UP));
+		addSequential(new RaiseShooterCommand());
 		addSequential(new ChargeShooterTopCommand());
-		addSequential(new MoveShooterCommand(Position.DOWN));
+		addSequential(new LowerShooterCommand());
 		addSequential(new FireShooterCommand());
 		addSequential(new StopShooterCommand());
 	}

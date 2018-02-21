@@ -8,24 +8,21 @@
 package org.usfirst.frc.team3268.robot.commands.pneumatic;
 
 import org.usfirst.frc.team3268.robot.Robot;
-import org.usfirst.frc.team3268.robot.subsystems.Position;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class MoveShooterCommand extends Command {
+public class RaiseShooterCommand extends Command {
 	
-	Position goalPosition;
-	public MoveShooterCommand(Position position) {
+	public RaiseShooterCommand() {
 		requires(Robot.shooterPneumaticsSubsystem);
 		this.setTimeout(1.5);
-		goalPosition = position;
 	}
 
 	protected void execute() {
-		Robot.shooterPneumaticsSubsystem.setShooterPosition(goalPosition);
+		Robot.shooterPneumaticsSubsystem.retractShooterPiston();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -34,11 +31,11 @@ public class MoveShooterCommand extends Command {
 	}
 
 	protected void end() {
-		Robot.shooterPneumaticsSubsystem.setShooterPosition(null);
-		Robot.shooterPneumaticsSubsystem.position = goalPosition;
+		Robot.shooterPneumaticsSubsystem.stopShooterPiston();
 	}
 
 	protected void interrupted() {
 		this.end();
 	}
+	
 }
