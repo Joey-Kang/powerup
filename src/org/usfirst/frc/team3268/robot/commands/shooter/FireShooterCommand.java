@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot.commands.shooter;
 
 import org.usfirst.frc.team3268.robot.Robot;
+import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -18,7 +19,7 @@ public class FireShooterCommand extends Command {
 	
 	public FireShooterCommand() {
 		requires(Robot.shooterWheelsSubsystem);
-		setTimeout(1.0);
+		setTimeout(ShooterWheelsSubsystem.FIRING_TIME);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
