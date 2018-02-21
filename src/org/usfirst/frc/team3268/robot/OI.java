@@ -82,7 +82,7 @@ public class OI {
 		buttonChargeShooterTop.whenReleased(new StopShooterTopCommand());
 		buttonChargeShooterBottom.whenPressed(new ChargeShooterBottomCommand());
 		buttonChargeShooterBottom.whenReleased(new StopShooterBottomCommand());
-		
+		 
 		buttonFireShooter.whenPressed(new FireShooterCommand());
 		
 		buttonFireUp.whenPressed(new FireUpCommandGroup());
