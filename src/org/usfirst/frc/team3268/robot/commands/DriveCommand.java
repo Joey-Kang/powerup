@@ -25,7 +25,7 @@ public class DriveCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.driveSubsystem.arcadeDrive(
+		Robot.driveSubsystem.tankDrive(
 				OI.controller.getRawAxis(OIMap.axisDriveLeft), 
 				OI.controller.getRawAxis(OIMap.axisDriveRight),
 				OI.controller.getRawButton(OIMap.buttonDriveReverse));
