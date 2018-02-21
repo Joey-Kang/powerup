@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot.commands.pneumatic;
 
 import org.usfirst.frc.team3268.robot.Robot;
+import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -18,7 +19,7 @@ public class RaiseShooterCommand extends Command {
 	
 	public RaiseShooterCommand() {
 		requires(Robot.shooterPneumaticsSubsystem);
-		this.setTimeout(1.5);
+		this.setTimeout(ShooterPneumaticsSubsystem.TRAVEL_TIME);
 	}
 
 	protected void execute() {

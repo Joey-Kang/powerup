@@ -19,6 +19,8 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
+	public static final double TRAVEL_TIME = 2.0;
+	
 	Compressor compressor = new Compressor();
 	DoubleSolenoid shooterPiston = new DoubleSolenoid(0,1);
 	
