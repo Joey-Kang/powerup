@@ -8,7 +8,6 @@
 package org.usfirst.frc.team3268.robot.commands;
 
 import org.usfirst.frc.team3268.robot.OI;
-import org.usfirst.frc.team3268.robot.OIMap;
 import org.usfirst.frc.team3268.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
