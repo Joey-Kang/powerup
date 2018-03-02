@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class DriveCommand extends Command {
+public class ManualDriveCommand extends Command {
 	
-	public DriveCommand() {
+	public ManualDriveCommand() {
 		// subsystem dependencies
 		requires(Robot.driveSubsystem);
 	}
