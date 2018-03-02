@@ -31,8 +31,8 @@ public class ManualShooterPneumaticsCommand extends Command {
 	protected void execute() {
 		switch(OI.controller.getPOV()) {
 		case 0: Robot.shooterPneumaticsSubsystem.extendShooterPiston(); break;
-		case 4: Robot.shooterPneumaticsSubsystem.retractShooterPiston(); break;
-		default: break;
+		case -1: break;
+		default: Robot.shooterPneumaticsSubsystem.retractShooterPiston(); break;
 		}
 	}
 
