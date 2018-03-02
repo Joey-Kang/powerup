@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3268.robot.subsystems;
 
 import org.usfirst.frc.team3268.robot.RobotMap;
+import org.usfirst.frc.team3268.robot.commands.ManualShooterWheelsCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
@@ -47,7 +48,6 @@ public class ShooterWheelsSubsystem extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-//		setDefaultCommand(new ShooterCommand());
+		setDefaultCommand(new ManualShooterWheelsCommand());
 	}
 }
