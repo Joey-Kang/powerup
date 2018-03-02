@@ -13,6 +13,7 @@ import org.usfirst.frc.team3268.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -45,6 +46,8 @@ public class Robot extends TimedRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
+		
+		CameraServer.getInstance().startAutomaticCapture();
 		
 		oi = new OI();
 		
