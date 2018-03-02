@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team3268.robot.subsystems;
 
-import org.usfirst.frc.team3268.robot.commands.manual.ManualButterflyWingsCommand;
+import org.usfirst.frc.team3268.robot.commands.butterfly.ManualButterflyWingsCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;

@@ -8,7 +8,7 @@
 package org.usfirst.frc.team3268.robot.subsystems;
 
 import org.usfirst.frc.team3268.robot.RobotMap;
-import org.usfirst.frc.team3268.robot.commands.manual.DriveCommand;
+import org.usfirst.frc.team3268.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;

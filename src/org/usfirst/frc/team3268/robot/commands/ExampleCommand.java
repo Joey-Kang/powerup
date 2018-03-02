@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.manual;
+package org.usfirst.frc.team3268.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
