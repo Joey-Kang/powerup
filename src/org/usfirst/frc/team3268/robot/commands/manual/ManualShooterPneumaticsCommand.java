@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands;
+package org.usfirst.frc.team3268.robot.commands.manual;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -15,23 +15,39 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class DriveCommand extends Command {
+public class ManualShooterPneumaticsCommand extends Command {
 	
-	public DriveCommand() {
-		// subsystem dependencies
-		requires(Robot.driveSubsystem);
+	public ManualShooterPneumaticsCommand() {
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.shooterPneumaticsSubsystem);
+	}
+
+	// Called just before this Command runs the first time
+	@Override
+	protected void initialize() {
 	}
 
 	// Called repeatedly when this Command is scheduled to run
+	@Override
 	protected void execute() {
-		Robot.driveSubsystem.tankDrive(
-				OI.leftStick.getRawAxis(1), 
-				OI.rightStick.getRawAxis(1),
-				OI.leftStick.getRawButton(1)); 
+		if (OI.controller.getPOV(0) != -1) 		Robot.shooterPneumaticsSubsystem.extendShooterPiston();
+		if (OI.controller.getPOV(180) != -1) 	Robot.shooterPneumaticsSubsystem.retractShooterPiston();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
+	@Override
 	protected boolean isFinished() {
 		return false;
+	}
+
+	// Called once after isFinished returns true
+	@Override
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	@Override
+	protected void interrupted() {
 	}
 }

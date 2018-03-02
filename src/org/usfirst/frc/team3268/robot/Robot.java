@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3268.robot.commands.manual.ExampleCommand;
 import org.usfirst.frc.team3268.robot.subsystems.ButterflyWingsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
