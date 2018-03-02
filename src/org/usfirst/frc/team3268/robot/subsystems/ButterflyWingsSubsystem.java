@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team3268.robot.subsystems;
 
+import org.usfirst.frc.team3268.robot.commands.butterfly.ManualButterflyWingsCommand;
+
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ButterflyWingsSubsystem extends Subsystem {
 	
-	public static final double WING_SPEED = 0.3;
+	public static final double MAX_SPEED = 0.3;
 	public static final double MOVEMENT_TIME = 0.5;
 	
 	Talon leftWing;
@@ -31,17 +33,26 @@ public class ButterflyWingsSubsystem extends Subsystem {
 	}
 	
 	public void close() {
-		butterflyWings.set(WING_SPEED);
+		
 	}
 	public void open() {
-		butterflyWings.set(-WING_SPEED);
+		butterflyWings.set(-1);
 	}
 	public void freeze() {
 		butterflyWings.set(0);
 	}
 	
+	public void setRightSpeed(double speed) {
+		leftWing.set(speed * MAX_SPEED);
+	}
+	
+	public void setLeftSpeed(double speed) {
+		rightWing.set(speed * MAX_SPEED);
+	}
+	
+	
+	
 	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-//		setDefaultCommand(new ShooterCommand());
+		setDefaultCommand(new ManualButterflyWingsCommand());
 	}
 }

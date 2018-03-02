@@ -70,8 +70,8 @@ public class OI {
 	public static Button buttonFireUp = new JoystickButton(rightStick, 11);
 	public static Button buttonSlamFire = new JoystickButton(rightStick, 12);
 	
-	public static Button buttonOpenWings = new JoystickButton(controller,5);
-	public static Button buttonCloseWings = new JoystickButton(controller,6);
+//	public static Button buttonOpenWings = new JoystickButton(controller,5);
+//	public static Button buttonCloseWings = new JoystickButton(controller,6);
 	
 	public OI() {
 		
@@ -88,8 +88,8 @@ public class OI {
 		buttonFireUp.whenPressed(new FireUpCommandGroup());
 		buttonSlamFire.whenPressed(new SlamFireCommandGroup());
 		
-		buttonOpenWings.whenPressed(new OpenWingsCommand());
-		buttonCloseWings.whenPressed(new CloseWingsCommand());
+//		buttonOpenWings.whenPressed(new OpenWingsCommand());
+//		buttonCloseWings.whenPressed(new CloseWingsCommand());
 		
 	}
 }
