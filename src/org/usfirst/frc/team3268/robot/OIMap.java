@@ -4,8 +4,6 @@ public class OIMap {
 	
 	// controller
 	
-	public static int axisDriveLeft 		= 1;
-	public static int axisDriveRight 	= 5;
 	public static int axisShooterTop 	= 2;
 	public static int axisShooterBottom 	= 3;
 	

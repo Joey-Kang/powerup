@@ -50,6 +50,6 @@ public class DriveSubsystem extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new DriveCommand());
+//		setDefaultCommand(new DriveCommand());
 	}
 }

@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.butterfly.CloseWingsCommand;
-import org.usfirst.frc.team3268.robot.commands.butterfly.OpenWingsCommand;
 import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.complex.SlamFireCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
