@@ -29,9 +29,11 @@ public class ManualShooterPneumaticsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		System.out.println(OI.controller.getPOV());
-		if (OI.controller.getPOV(0) != -1) Robot.shooterPneumaticsSubsystem.extendShooterPiston();
-		else if (OI.controller.getPOV(180) != -1) Robot.shooterPneumaticsSubsystem.retractShooterPiston();
+		switch(OI.controller.getPOV()) {
+		case 0: Robot.shooterPneumaticsSubsystem.extendShooterPiston(); break;
+		case 4: Robot.shooterPneumaticsSubsystem.retractShooterPiston(); break;
+		default: break;
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
