@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class FireShooterCommand extends Command {
+public class BoostCubeCommand extends Command {
 	
-	public FireShooterCommand() {
+	public BoostCubeCommand() {
 		requires(Robot.shooterWheelsSubsystem);
 		setTimeout(ShooterWheelsSubsystem.FIRING_TIME);
 	}

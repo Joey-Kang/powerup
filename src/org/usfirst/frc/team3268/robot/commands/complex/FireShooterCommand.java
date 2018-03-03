@@ -7,26 +7,20 @@
 
 package org.usfirst.frc.team3268.robot.commands.complex;
 
-import org.usfirst.frc.team3268.robot.OI;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.BoostCubeCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class FireUpCommandGroup extends CommandGroup {
+public class FireShooterCommand extends CommandGroup {
 	
-	public FireUpCommandGroup() {
-		if (OI.rightStick.getRawButton(2)) addSequential(new RaiseShooterCommand());
-		addParallel(new ChargeShooterTopCommand());
-		addSequential(new LowerShooterCommand());
+	public FireShooterCommand() {
+		addSequential(new ChargeShooterTopCommand());
+		Timer.delay(1.0);
 		addSequential(new BoostCubeCommand());
-		addSequential(new StopShooterCommand());
 	}
-	
 }

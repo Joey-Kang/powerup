@@ -29,8 +29,25 @@ public class ManualShooterWheelsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.shooterWheelsSubsystem.setTop(OI.controller.getRawAxis(3));
-//		Robot.shooterWheelsSubsystem.setBottom(OI.controller.getRawAxis(OIMap.axisShooterBottom));
+		
+		double topVal = 0, bottomVal = 0;
+		
+//		topVal = OI.controller.getRawAxis(3);
+		
+		// A = slow up bottom (1)
+		if (OI.controller.getRawButton(1)) bottomVal = 0.75;
+		
+		// B = slow down bottom (2)
+		if (OI.controller.getRawButton(1)) bottomVal = -0.75;
+		
+		// X = slow down top (3)
+		if (OI.controller.getRawButton(1)) topVal = -0.75;
+		
+		// Y = slow up top (4)
+		if (OI.controller.getRawButton(1)) topVal = 0.75;
+		
+		Robot.shooterWheelsSubsystem.setTop(topVal);
+		Robot.shooterWheelsSubsystem.setBottom(bottomVal);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

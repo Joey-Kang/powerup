@@ -7,11 +7,11 @@
 
 package org.usfirst.frc.team3268.robot;
 
+import org.usfirst.frc.team3268.robot.commands.complex.FireShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.complex.SlamFireCommandGroup;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.FireShooterCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
