@@ -26,7 +26,7 @@ public class DriveSubsystem extends Subsystem {
 	Talon driveRightBack;
 	SpeedControllerGroup driveLeft;
 	SpeedControllerGroup driveRight;
-	DifferentialDrive driveTrain;
+	public DifferentialDrive driveTrain;
 	
 	public DriveSubsystem() {
 		// all declaration of actual stuff
@@ -39,14 +39,6 @@ public class DriveSubsystem extends Subsystem {
 		driveLeft.setInverted(true);
 		driveRight.setInverted(true);
 		driveTrain = new DifferentialDrive(driveLeft, driveRight);
-	}
-	
-	public void tankDrive(double left, double right, boolean reverse) {
-		driveTrain.tankDrive(left * (!reverse ? 1 : -1), right * (!reverse ? 1 : -1));
-	}
-	
-	public void arcadeDrive(double speed, double heading, boolean reverse) {
-		driveTrain.arcadeDrive(speed * (!reverse ? 1 : -1), heading);
 	}
 	
 	public void initDefaultCommand() {

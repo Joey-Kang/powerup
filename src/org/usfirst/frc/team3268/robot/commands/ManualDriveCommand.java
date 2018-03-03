@@ -24,10 +24,18 @@ public class ManualDriveCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.driveSubsystem.tankDrive(
-				OI.leftStick.getRawAxis(1), 
-				OI.rightStick.getRawAxis(1),
-				OI.leftStick.getRawButton(1)); 
+		double speedScale = 0.5 + (OI.rightStick.getRawAxis(3) + 1) / 2d;
+		speedScale *= OI.rightStick.getRawButton(1) ? -1 : 1;
+		
+		if (!OI.rightStick.getRawButton(2)) {
+			Robot.driveSubsystem.driveTrain.tankDrive(
+					OI.leftStick.getRawAxis(1) * speedScale, 
+					OI.rightStick.getRawAxis(1) * speedScale); 
+		} else {
+			Robot.driveSubsystem.driveTrain.arcadeDrive(
+					OI.rightStick.getRawAxis(1) * speedScale, 
+					-OI.rightStick.getRawAxis(0));
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

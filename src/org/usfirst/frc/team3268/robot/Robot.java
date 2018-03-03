@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3268.robot.commands.auto.ChargeAutoCommand;
 import org.usfirst.frc.team3268.robot.subsystems.ButterflyWingsSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team3268.robot.subsystems.ShooterPneumaticsSubsystem;
@@ -37,8 +37,8 @@ public class Robot extends TimedRobot {
 	public static OI oi;
 
 	// smartDashboard & other chooser stuff
-	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	Command autoCommand;
+	SendableChooser<Command> autoChooser = new SendableChooser<>();
 
 	
 	/**
@@ -53,29 +53,15 @@ public class Robot extends TimedRobot {
 		
 		/* Autonomous Initiation & Declaration */
 		
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		autoChooser.addDefault("No Auto", null);
+		autoChooser.addObject("Forwards Charge", new ChargeAutoCommand(1));
+		autoChooser.addObject("Backwards Charge", new ChargeAutoCommand(-1));
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", m_chooser);
+		SmartDashboard.putData("Autonomous", autoChooser);
 	}
 	public void cameraInit() {
 		CameraServer.getInstance().startAutomaticCapture(0);
 		CameraServer.getInstance().startAutomaticCapture(1);
-//		new Thread(() -> {
-//            UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//            camera.setResolution(640, 480);
-//            
-//            CvSink cvSink = CameraServer.getInstance().getVideo();
-//            CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-//            
-//            Mat source = new Mat();
-//            Mat output = new Mat();
-//            
-//            while(!Thread.interrupted()) {
-//                cvSink.grabFrame(source);
-//                Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-//                outputStream.putFrame(output);
-//            }
-//        }).start();
 	}
 
 	/**
@@ -103,18 +89,18 @@ public class Robot extends TimedRobot {
 	 * to the switch structure below with additional strings & commands.
 	 */
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
+		autoCommand = autoChooser.getSelected();
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+
+//		 String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
+//		 switch(autoSelected) { 
+//		 case "My Auto": autonomousCommand = new MyAutoCommand(); break;
+//		 case "Default Auto": 
+//			default: autonomousCommand = new ExampleCommand(); break; }
 
 		// schedule the autonomous command (example)
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.start();
+		if (autoCommand != null) {
+			autoCommand.start();
 		}
 	}
 
@@ -130,8 +116,8 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.cancel();
+		if (autoCommand != null) {
+			autoCommand.cancel();
 		}
 		
 //		new MoveShooterCommand(Position.UP).start();
