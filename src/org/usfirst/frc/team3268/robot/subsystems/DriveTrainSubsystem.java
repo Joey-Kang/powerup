@@ -8,7 +8,7 @@
 package org.usfirst.frc.team3268.robot.subsystems;
 
 import org.usfirst.frc.team3268.robot.RobotMap;
-import org.usfirst.frc.team3268.robot.commands.ManualDriveCommand;
+import org.usfirst.frc.team3268.robot.commands.manual.ManualDriveCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class DriveSubsystem extends Subsystem {
+public class DriveTrainSubsystem extends Subsystem {
 
 	Talon driveLeftFront;
 	Talon driveLeftBack;
@@ -28,7 +28,7 @@ public class DriveSubsystem extends Subsystem {
 	SpeedControllerGroup driveRight;
 	public DifferentialDrive driveTrain;
 	
-	public DriveSubsystem() {
+	public DriveTrainSubsystem() {
 		// all declaration of actual stuff
 		driveLeftFront 	= new Talon(RobotMap.PWM_driveLeftFront);
 		driveLeftBack 	= new Talon(RobotMap.PWM_driveLeftBack);
@@ -39,6 +39,18 @@ public class DriveSubsystem extends Subsystem {
 		driveLeft.setInverted(true);
 		driveRight.setInverted(true);
 		driveTrain = new DifferentialDrive(driveLeft, driveRight);
+	}
+	
+	public void arcadeDrive(double speed, double heading) {
+		driveTrain.arcadeDrive(speed, heading);
+	}
+	
+	public void tankDrive(double left, double right) {
+		driveTrain.tankDrive(left, right);
+	}
+	
+	public void stop() {
+		driveTrain.stopMotor();
 	}
 	
 	public void initDefaultCommand() {

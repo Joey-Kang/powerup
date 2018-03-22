@@ -7,28 +7,15 @@
 
 package org.usfirst.frc.team3268.robot.commands.shooter;
 
-import org.usfirst.frc.team3268.robot.Robot;
-
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class StopShooterBottomCommand extends Command {
+public class StopShooterBottomCommand extends CommandGroup {
 	
 	public StopShooterBottomCommand() {
-		requires(Robot.shooterWheelsSubsystem);
-	}
-	
-	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {
-		Robot.shooterWheelsSubsystem.setBottom(0);
-		finished = true;
-	}
-
-	boolean finished = false;
-	protected boolean isFinished() {
-		return finished;
+		addSequential(new SetShooterBottomCommand(0));
 	}
 	
 }

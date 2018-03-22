@@ -5,22 +5,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.complex;
+package org.usfirst.frc.team3268.robot.commands.macros;
 
-import org.usfirst.frc.team3268.robot.commands.shooter.BoostCubeCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
+import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterCommand;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class FireShooterCommand extends CommandGroup {
+public class SlamFireMacro extends CommandGroup {
 	
-	public FireShooterCommand() {
-		addSequential(new ChargeShooterTopCommand());
-		Timer.delay(1.0);
-		addSequential(new BoostCubeCommand());
+	public SlamFireMacro() {
+		
+		addParallel(new ChargeShooterCommand());
+		addSequential(new LowerShooterCommand());
+		addSequential(new WaitCommand(2.0));
+		
+		addSequential(new StopShooterCommand());
+		
 	}
+	
 }

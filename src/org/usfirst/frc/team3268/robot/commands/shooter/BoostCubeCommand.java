@@ -8,7 +8,7 @@
 package org.usfirst.frc.team3268.robot.commands.shooter;
 
 import org.usfirst.frc.team3268.robot.Robot;
-import org.usfirst.frc.team3268.robot.subsystems.ShooterWheelsSubsystem;
+import org.usfirst.frc.team3268.robot.subsystems.ShooterTopSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -18,13 +18,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class BoostCubeCommand extends Command {
 	
 	public BoostCubeCommand() {
-		requires(Robot.shooterWheelsSubsystem);
-		setTimeout(ShooterWheelsSubsystem.FIRING_TIME);
+		requires(Robot.shooterBottom);
+		setTimeout(ShooterTopSubsystem.FIRING_TIME);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.shooterWheelsSubsystem.setBottom(1);
+		Robot.shooterBottom.setSpeed(1);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -40,7 +40,7 @@ public class BoostCubeCommand extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.shooterWheelsSubsystem.setBottom(0);
+		Robot.shooterBottom.setSpeed(0);
 	}
 	
 }

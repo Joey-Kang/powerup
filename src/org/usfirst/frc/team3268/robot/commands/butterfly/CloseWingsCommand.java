@@ -18,13 +18,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CloseWingsCommand extends Command {
 	
 	public CloseWingsCommand() {
-		requires(Robot.butterflyWingsSubsystem);
+		requires(Robot.butterflyWings);
 		setTimeout(ButterflyWingsSubsystem.MOVEMENT_TIME);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.butterflyWingsSubsystem.close();
+		Robot.butterflyWings.close();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -34,7 +34,7 @@ public class CloseWingsCommand extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.butterflyWingsSubsystem.freeze();
+		Robot.butterflyWings.freeze();
 	}
 
 	// Called when another command which requires one or more of the same

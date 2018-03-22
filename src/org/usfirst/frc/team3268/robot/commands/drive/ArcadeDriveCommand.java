@@ -18,7 +18,7 @@ public class ArcadeDriveCommand extends Command {
 	double speed, heading;
 	public ArcadeDriveCommand(double speed, double heading) {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.driveSubsystem);
+		requires(Robot.driveTrain);
 		this.speed = speed;
 		this.heading = heading;
 	}
@@ -31,7 +31,7 @@ public class ArcadeDriveCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.driveSubsystem.driveTrain.arcadeDrive(speed, heading);
+		Robot.driveTrain.arcadeDrive(-speed, heading);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -5,13 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.complex;
+package org.usfirst.frc.team3268.robot.commands.macros;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
 import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterBottomCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.ChargeShooterTopCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.BoostCubeCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -19,14 +19,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class SlamFireCommandGroup extends CommandGroup {
+public class FireUpMacro extends CommandGroup {
 	
-	public SlamFireCommandGroup() {
-		if (OI.rightStick.getRawButton(2)) addSequential(new RaiseShooterCommand());
+	public FireUpMacro() {
+		if (OI.stick.getRawButton(2)) addSequential(new RaiseShooterCommand());
 		addParallel(new ChargeShooterTopCommand());
-		addParallel(new ChargeShooterBottomCommand());
 		addSequential(new LowerShooterCommand());
-		
+		addSequential(new BoostCubeCommand());
 		addSequential(new StopShooterCommand());
 	}
 	

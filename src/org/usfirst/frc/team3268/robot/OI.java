@@ -7,11 +7,14 @@
 
 package org.usfirst.frc.team3268.robot;
 
-import org.usfirst.frc.team3268.robot.commands.complex.FireShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.complex.FireUpCommandGroup;
-import org.usfirst.frc.team3268.robot.commands.complex.SlamFireCommandGroup;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.LowerShooterCommand;
-import org.usfirst.frc.team3268.robot.commands.pneumatic.RaiseShooterCommand;
+import org.usfirst.frc.team3268.robot.commands.macros.FireShooterMacro;
+import org.usfirst.frc.team3268.robot.commands.macros.PickupMacro;
+import org.usfirst.frc.team3268.robot.commands.macros.SlamFireMacro;
+import org.usfirst.frc.team3268.robot.commands.macros.SwitchFromBottomMacro;
+import org.usfirst.frc.team3268.robot.commands.macros.SwitchFromTopMacro;
+import org.usfirst.frc.team3268.robot.commands.shooter.SetShooterTopCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.SpinShooterBottomCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.SpinShooterTopCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -50,40 +53,49 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	public static Joystick leftStick 	= new Joystick(0);
-	public static Joystick rightStick	= new Joystick(1);
-	public static Joystick controller	= new Joystick(2);
-	 
-	public static Button buttonLowerShooter 	= new JoystickButton(leftStick, 3);
-	public static Button buttonRaiseShooter 	= new JoystickButton(leftStick, 2);
+	public static Joystick prototype = new Joystick(0);
+	public static Joystick stick = new Joystick(1);
+	public static Joystick controller = new Joystick(2);
 	
-//	public static Button buttonChargeShooterTop 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterTop);
-//	public static Button buttonChargeShooterBottom 	= new JoystickButton(rightStick, OIMap.buttonChargeShooterBottom);
-	public static Button buttonFireShooter 			= new JoystickButton(controller, 6);
+	Button scaleButton = new JoystickButton(controller, 5);
+	Button switchButton = new JoystickButton(controller, 6);
 	
-	public static Button buttonFireUp = new JoystickButton(rightStick, 11);
-	public static Button buttonSlamFire = new JoystickButton(rightStick, 12);
+	Button boostButton = new JoystickButton(stick, 11);
+	Button fireButton = new JoystickButton(stick, 12);
+
+//	Button switchFireFromTopButton = new JoystickButton(controller, 4);
 	
-//	public static Button buttonOpenWings = new JoystickButton(controller,5);
-//	public static Button buttonCloseWings = new JoystickButton(controller,6);
+	
+	Button bottomUpButton = new JoystickButton(controller, 1);
+	Button bottomDownButton = new JoystickButton(controller, 2);
+	Button topDownButton = new JoystickButton(controller, 3);
+	
+//	Button switchFromBottomButton = new JoystickButton(stick, 11);
+	Button switchFromTopButton = new JoystickButton(controller, 4);
+	Button slamFireButton = new JoystickButton(stick, 10);
+	Button pickupButton = new JoystickButton(stick, 2);
 	
 	public OI() {
 		
-		buttonLowerShooter.whenPressed(new LowerShooterCommand());
-		buttonRaiseShooter.whenPressed(new RaiseShooterCommand());
+		scaleButton.whenPressed(new SetShooterTopCommand(1));
+		scaleButton.whenReleased(new FireShooterMacro());
 		
-//		buttonChargeShooterTop.whenPressed(new ChargeShooterTopCommand());
-//		buttonChargeShooterTop.whenReleased(new StopShooterTopCommand());
-//		buttonChargeShooterBottom.whenPressed(new ChargeShooterBottomCommand());
-//		buttonChargeShooterBottom.whenReleased(new StopShooterBottomCommand());
-		 
-		buttonFireShooter.whenPressed(new FireShooterCommand());
+		switchButton.whenPressed(new SetShooterTopCommand(0.65));
+		switchButton.whenReleased(new FireShooterMacro());
 		
-		buttonFireUp.whenPressed(new FireUpCommandGroup());
-		buttonSlamFire.whenPressed(new SlamFireCommandGroup());
+//		switchFireFromTopButton.whenPressed(new SwitchFromTopMacro());
 		
-//		buttonOpenWings.whenPressed(new OpenWingsCommand());
-//		buttonCloseWings.whenPressed(new CloseWingsCommand());
+		bottomUpButton.whileHeld(new SpinShooterBottomCommand(0.6));
+		bottomDownButton.whileHeld(new SpinShooterBottomCommand(-0.6));
+		slamFireButton.whenPressed(new SlamFireMacro());
+		topDownButton.whileHeld(new SpinShooterTopCommand(-0.6));
 		
+		
+//		// prototype
+//		switchFromBottomButton.whenPressed(new SwitchFromBottomMacro());
+		switchFromTopButton.whenPressed(new SwitchFromTopMacro());
+		pickupButton.whenPressed(new PickupMacro());
+//		
 	}
+	
 }

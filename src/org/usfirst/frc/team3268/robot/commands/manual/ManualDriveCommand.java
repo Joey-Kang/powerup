@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands;
+package org.usfirst.frc.team3268.robot.commands.manual;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -19,23 +19,19 @@ public class ManualDriveCommand extends Command {
 	
 	public ManualDriveCommand() {
 		// subsystem dependencies
-		requires(Robot.driveSubsystem);
+		requires(Robot.driveTrain);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double speedScale = 0.5 + (OI.rightStick.getRawAxis(3) + 1) / 2d;
-		speedScale *= OI.rightStick.getRawButton(1) ? -1 : 1;
 		
-		if (!OI.rightStick.getRawButton(2)) {
-			Robot.driveSubsystem.driveTrain.tankDrive(
-					OI.leftStick.getRawAxis(1) * speedScale, 
-					OI.rightStick.getRawAxis(1) * speedScale); 
-		} else {
-			Robot.driveSubsystem.driveTrain.arcadeDrive(
-					OI.rightStick.getRawAxis(1) * speedScale, 
-					-OI.rightStick.getRawAxis(0));
-		}
+		double speedScale = 0.3 + (OI.stick.getRawAxis(3) + 1) * 0.6d;
+		speedScale *= OI.stick.getRawButton(1) ? -1 : 1;
+		
+		Robot.driveTrain.driveTrain.arcadeDrive(
+				OI.stick.getRawAxis(1) * speedScale, 
+				-OI.stick.getRawAxis(0));
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

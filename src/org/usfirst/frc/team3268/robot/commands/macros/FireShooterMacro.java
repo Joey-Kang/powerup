@@ -5,19 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.auto;
+package org.usfirst.frc.team3268.robot.commands.macros;
 
-import org.usfirst.frc.team3268.robot.commands.drive.ArcadeDriveCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.BoostCubeCommand;
+import org.usfirst.frc.team3268.robot.commands.shooter.StopShooterCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ChargeAutoCommand extends CommandGroup {
+public class FireShooterMacro extends CommandGroup {
 	
-	public ChargeAutoCommand(double speed) {
-		addSequential(new ArcadeDriveCommand(speed,0));
+	public FireShooterMacro() {
+		addSequential(new BoostCubeCommand());
+		addSequential(new StopShooterCommand());
 	}
-	
 }

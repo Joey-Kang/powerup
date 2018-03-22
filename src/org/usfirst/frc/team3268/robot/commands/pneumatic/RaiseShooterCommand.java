@@ -18,12 +18,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RaiseShooterCommand extends Command {
 	
 	public RaiseShooterCommand() {
-		requires(Robot.shooterPneumaticsSubsystem);
+		requires(Robot.shooterPneumatics);
 		this.setTimeout(ShooterPneumaticsSubsystem.TRAVEL_TIME);
 	}
 
 	protected void execute() {
-		Robot.shooterPneumaticsSubsystem.retractShooterPiston();
+		Robot.shooterPneumatics.retractShooterPiston();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -32,7 +32,7 @@ public class RaiseShooterCommand extends Command {
 	}
 
 	protected void end() {
-		Robot.shooterPneumaticsSubsystem.stopShooterPiston();
+		Robot.shooterPneumatics.stopShooterPiston();
 	}
 
 	protected void interrupted() {

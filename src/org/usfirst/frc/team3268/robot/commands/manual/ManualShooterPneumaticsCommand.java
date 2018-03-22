@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands;
+package org.usfirst.frc.team3268.robot.commands.manual;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualShooterWheelsCommand extends Command {
-	public ManualShooterWheelsCommand() {
+public class ManualShooterPneumaticsCommand extends Command {
+	public ManualShooterPneumaticsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterWheelsSubsystem);
+		requires(Robot.shooterPneumatics);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,25 +29,11 @@ public class ManualShooterWheelsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		
-		double topVal = 0, bottomVal = 0;
-		
-//		topVal = OI.controller.getRawAxis(3);
-		
-		// A = slow up bottom (1)
-		if (OI.controller.getRawButton(1)) bottomVal = 0.75;
-		
-		// B = slow down bottom (2)
-		if (OI.controller.getRawButton(2)) bottomVal = -0.75;
-		
-		// X = slow down top (3)
-		if (OI.controller.getRawButton(3)) topVal = -0.75;
-		
-		// Y = slow up top (4)
-		if (OI.controller.getRawButton(4)) topVal = 0.75;
-		
-		Robot.shooterWheelsSubsystem.setTop(topVal);
-		Robot.shooterWheelsSubsystem.setBottom(bottomVal);
+		switch(OI.controller.getPOV()) {
+		case 0: Robot.shooterPneumatics.extendShooterPiston(); break;
+		case -1: break;
+		default: Robot.shooterPneumatics.retractShooterPiston(); break;
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

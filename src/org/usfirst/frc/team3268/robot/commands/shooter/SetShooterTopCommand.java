@@ -5,42 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.butterfly;
+package org.usfirst.frc.team3268.robot.commands.shooter;
 
 import org.usfirst.frc.team3268.robot.Robot;
-import org.usfirst.frc.team3268.robot.subsystems.ButterflyWingsSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class OpenWingsCommand extends Command {
+public class SetShooterTopCommand extends Command {
 	
-	public OpenWingsCommand() {
-		requires(Robot.butterflyWings);
-		setTimeout(ButterflyWingsSubsystem.MOVEMENT_TIME);
+	double speed;
+	public SetShooterTopCommand(double speed) {
+		requires(Robot.shooterTop);
+		this.speed = speed;
 	}
-
-	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {
-		Robot.butterflyWings.open();
+	
+	boolean finished = false;
+	public void execute() {
+		Robot.shooterTop.setSpeed(speed);
+		finished = true;
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return isTimedOut();
-	}
-
-	// Called once after isFinished returns true
-	protected void end() {
-		Robot.butterflyWings.freeze();
-	}
-
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
-	protected void interrupted() {
-		end();
+		return finished;
 	}
 	
+	public void end() {
+		Robot.shooterTop.setSpeed(speed);
+	}
+
 }

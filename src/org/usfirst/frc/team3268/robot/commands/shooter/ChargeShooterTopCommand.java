@@ -7,29 +7,15 @@
 
 package org.usfirst.frc.team3268.robot.commands.shooter;
 
-import org.usfirst.frc.team3268.robot.Robot;
-
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ChargeShooterTopCommand extends Command {
+public class ChargeShooterTopCommand extends CommandGroup {
 	
 	public ChargeShooterTopCommand() {
-		requires(Robot.shooterWheelsSubsystem);
+		addSequential(new SetShooterTopCommand(1));
 	}
-
-	// Called repeatedly when this Command is scheduled to run
-	protected void execute() {
-		Robot.shooterWheelsSubsystem.setTop(1);
-		finished = true;
-	}
-
-	// Make this return true when this Command no longer needs to run execute()
-	boolean finished = false;
-	protected boolean isFinished() {
-		return finished;
-	}
-
+	
 }

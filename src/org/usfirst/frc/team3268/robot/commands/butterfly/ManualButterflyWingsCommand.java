@@ -21,7 +21,7 @@ public class ManualButterflyWingsCommand extends Command {
 	
 	public ManualButterflyWingsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.butterflyWingsSubsystem);
+		requires(Robot.butterflyWings);
 	}
 
 	// Called just before this Command runs the first time
@@ -32,8 +32,8 @@ public class ManualButterflyWingsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.butterflyWingsSubsystem.setLeftSpeed(OI.controller.getRawAxis(4));
-		Robot.butterflyWingsSubsystem.setRightSpeed(OI.controller.getRawAxis(0));
+		Robot.butterflyWings.setLeftSpeed(OI.controller.getRawAxis(4));
+		Robot.butterflyWings.setRightSpeed(OI.controller.getRawAxis(0));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

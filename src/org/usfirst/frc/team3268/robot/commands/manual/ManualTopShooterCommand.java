@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands;
+package org.usfirst.frc.team3268.robot.commands.manual;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualShooterPneumaticsCommand extends Command {
-	public ManualShooterPneumaticsCommand() {
+public class ManualTopShooterCommand extends Command {
+	public ManualTopShooterCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterPneumaticsSubsystem);
+		requires(Robot.shooterTop);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,11 +29,16 @@ public class ManualShooterPneumaticsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		switch(OI.controller.getPOV()) {
-		case 0: Robot.shooterPneumaticsSubsystem.extendShooterPiston(); break;
-		case -1: break;
-		default: Robot.shooterPneumaticsSubsystem.retractShooterPiston(); break;
-		}
+		
+		double speed = 0;
+		
+		// X = slow down top (3)
+		if (OI.controller.getRawButton(3)) speed = -0.65;
+		
+		// Y = slow up top (4)
+		if (OI.controller.getRawButton(4)) speed = 0.65;
+		
+		Robot.shooterTop.setSpeed(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -45,6 +50,7 @@ public class ManualShooterPneumaticsCommand extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		Robot.shooterTop.setSpeed(0);
 	}
 
 	// Called when another command which requires one or more of the same
