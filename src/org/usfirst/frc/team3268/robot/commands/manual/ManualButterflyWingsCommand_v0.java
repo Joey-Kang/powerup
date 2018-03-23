@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.butterfly;
+package org.usfirst.frc.team3268.robot.commands.manual;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -15,11 +15,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualButterflyWingsCommand extends Command {
+public class ManualButterflyWingsCommand_v0 extends Command {
 	
 	public static double MAX_POWER = 0.5;
 	
-	public ManualButterflyWingsCommand() {
+	public ManualButterflyWingsCommand_v0() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.butterflyWings);
 	}

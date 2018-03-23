@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class FireUpMacro extends CommandGroup {
 	
 	public FireUpMacro() {
-		if (OI.stick.getRawButton(2)) addSequential(new RaiseShooterCommand());
+		if (OI.rightStick.getRawButton(2)) addSequential(new RaiseShooterCommand());
 		addParallel(new ChargeShooterTopCommand());
 		addSequential(new LowerShooterCommand());
 		addSequential(new BoostCubeCommand());

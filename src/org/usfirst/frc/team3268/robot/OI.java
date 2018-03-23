@@ -10,7 +10,6 @@ package org.usfirst.frc.team3268.robot;
 import org.usfirst.frc.team3268.robot.commands.macros.FireShooterMacro;
 import org.usfirst.frc.team3268.robot.commands.macros.PickupMacro;
 import org.usfirst.frc.team3268.robot.commands.macros.SlamFireMacro;
-import org.usfirst.frc.team3268.robot.commands.macros.SwitchFromBottomMacro;
 import org.usfirst.frc.team3268.robot.commands.macros.SwitchFromTopMacro;
 import org.usfirst.frc.team3268.robot.commands.shooter.SetShooterTopCommand;
 import org.usfirst.frc.team3268.robot.commands.shooter.SpinShooterBottomCommand;
@@ -53,15 +52,15 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	public static Joystick prototype = new Joystick(0);
-	public static Joystick stick = new Joystick(1);
+	public static Joystick leftStick = new Joystick(0);
+	public static Joystick rightStick = new Joystick(1);
 	public static Joystick controller = new Joystick(2);
 	
 	Button scaleButton = new JoystickButton(controller, 5);
 	Button switchButton = new JoystickButton(controller, 6);
 	
-	Button boostButton = new JoystickButton(stick, 11);
-	Button fireButton = new JoystickButton(stick, 12);
+	Button boostButton = new JoystickButton(rightStick, 11);
+	Button fireButton = new JoystickButton(rightStick, 12);
 
 //	Button switchFireFromTopButton = new JoystickButton(controller, 4);
 	
@@ -72,8 +71,8 @@ public class OI {
 	
 //	Button switchFromBottomButton = new JoystickButton(stick, 11);
 	Button switchFromTopButton = new JoystickButton(controller, 4);
-	Button slamFireButton = new JoystickButton(stick, 10);
-	Button pickupButton = new JoystickButton(stick, 2);
+	Button slamFireButton = new JoystickButton(rightStick, 10);
+	Button pickupButton = new JoystickButton(rightStick, 2);
 	
 	public OI() {
 		

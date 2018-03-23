@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualShooterPneumaticsCommand extends Command {
-	public ManualShooterPneumaticsCommand() {
+public class ManualBottomShooterCommand_v0 extends Command {
+	public ManualBottomShooterCommand_v0() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterPneumatics);
+		requires(Robot.shooterBottom);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,11 +29,14 @@ public class ManualShooterPneumaticsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		switch(OI.controller.getPOV()) {
-		case 0: Robot.shooterPneumatics.extendShooterPiston(); break;
-		case -1: break;
-		default: Robot.shooterPneumatics.retractShooterPiston(); break;
-		}
+		
+		double speed = 0;
+		
+		if (OI.controller.getRawButton(2)) speed = -0.65;
+		
+		if (OI.controller.getRawButton(1)) speed = 0.65;
+		
+		Robot.shooterBottom.setSpeed(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -45,6 +48,7 @@ public class ManualShooterPneumaticsCommand extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		Robot.shooterBottom.setSpeed(0);
 	}
 
 	// Called when another command which requires one or more of the same

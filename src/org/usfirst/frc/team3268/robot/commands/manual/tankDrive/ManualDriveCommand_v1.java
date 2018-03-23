@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team3268.robot.commands.manual;
+package org.usfirst.frc.team3268.robot.commands.manual.tankDrive;
 
 import org.usfirst.frc.team3268.robot.OI;
 import org.usfirst.frc.team3268.robot.Robot;
@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualDriveCommand extends Command {
+public class ManualDriveCommand_v1 extends Command {
 	
-	public ManualDriveCommand() {
+	public ManualDriveCommand_v1() {
 		// subsystem dependencies
 		requires(Robot.driveTrain);
 	}
@@ -25,12 +25,12 @@ public class ManualDriveCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		
-		double speedScale = 0.3 + (OI.stick.getRawAxis(3) + 1) * 0.6d;
-		speedScale *= OI.stick.getRawButton(1) ? -1 : 1;
+		double speedScale = 0.3 + (OI.rightStick.getRawAxis(3) + 1) * 0.6d;
+		speedScale *= OI.rightStick.getRawButton(1) ? -1 : 1;
 		
-		Robot.driveTrain.driveTrain.arcadeDrive(
-				OI.stick.getRawAxis(1) * speedScale, 
-				-OI.stick.getRawAxis(0));
+		Robot.driveTrain.driveTrain.tankDrive(
+				OI.leftStick.getRawAxis(1) * speedScale, 
+				OI.rightStick.getRawAxis(1) * speedScale);
 		
 	}
 

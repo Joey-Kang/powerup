@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team3268.robot.subsystems;
 
-import org.usfirst.frc.team3268.robot.commands.butterfly.ManualButterflyWingsCommand;
+import org.usfirst.frc.team3268.robot.commands.manual.tankDrive.ManualButterflyWingsCommand_v1;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
@@ -53,6 +53,6 @@ public class ButterflyWingsSubsystem extends Subsystem {
 	
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new ManualButterflyWingsCommand());
+		setDefaultCommand(new ManualButterflyWingsCommand_v1());
 	}
 }

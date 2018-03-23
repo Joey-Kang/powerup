@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualBottomShooterCommand extends Command {
-	public ManualBottomShooterCommand() {
+public class ManualTopShooterCommand_v0 extends Command {
+	public ManualTopShooterCommand_v0() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterBottom);
+		requires(Robot.shooterTop);
 	}
 
 	// Called just before this Command runs the first time
@@ -32,11 +32,13 @@ public class ManualBottomShooterCommand extends Command {
 		
 		double speed = 0;
 		
-		if (OI.controller.getRawButton(2)) speed = -0.65;
+		// X = slow down top (3)
+		if (OI.controller.getRawButton(3)) speed = -0.65;
 		
-		if (OI.controller.getRawButton(1)) speed = 0.65;
+		// Y = slow up top (4)
+		if (OI.controller.getRawButton(4)) speed = 0.65;
 		
-		Robot.shooterBottom.setSpeed(speed);
+		Robot.shooterTop.setSpeed(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -48,7 +50,7 @@ public class ManualBottomShooterCommand extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		Robot.shooterBottom.setSpeed(0);
+		Robot.shooterTop.setSpeed(0);
 	}
 
 	// Called when another command which requires one or more of the same

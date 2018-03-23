@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team3268.robot.subsystems;
 
-import org.usfirst.frc.team3268.robot.commands.manual.ManualShooterPneumaticsCommand;
+import org.usfirst.frc.team3268.robot.commands.manual.ManualShooterPneumaticsCommand_v0;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -31,7 +31,7 @@ public class ShooterPneumaticsSubsystem extends Subsystem { // #TODO
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new ManualShooterPneumaticsCommand());
+		setDefaultCommand(new ManualShooterPneumaticsCommand_v0());
 	}
 	
 	public void startCompressor() {

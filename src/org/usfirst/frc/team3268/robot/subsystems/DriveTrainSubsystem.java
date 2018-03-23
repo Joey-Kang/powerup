@@ -8,7 +8,7 @@
 package org.usfirst.frc.team3268.robot.subsystems;
 
 import org.usfirst.frc.team3268.robot.RobotMap;
-import org.usfirst.frc.team3268.robot.commands.manual.ManualDriveCommand;
+import org.usfirst.frc.team3268.robot.commands.manual.tankDrive.ManualDriveCommand_v1;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
@@ -54,6 +54,6 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new ManualDriveCommand());
+		setDefaultCommand(new ManualDriveCommand_v1());
 	}
 }

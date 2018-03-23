@@ -15,47 +15,27 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ManualTopShooterCommand extends Command {
-	public ManualTopShooterCommand() {
-		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterTop);
-	}
-
-	// Called just before this Command runs the first time
-	@Override
-	protected void initialize() {
+public class ManualDriveCommand_v0 extends Command {
+	
+	public ManualDriveCommand_v0() {
+		// subsystem dependencies
+		requires(Robot.driveTrain);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
-	@Override
 	protected void execute() {
 		
-		double speed = 0;
+		double speedScale = 0.3 + (OI.rightStick.getRawAxis(3) + 1) * 0.6d;
+		speedScale *= OI.rightStick.getRawButton(1) ? -1 : 1;
 		
-		// X = slow down top (3)
-		if (OI.controller.getRawButton(3)) speed = -0.65;
+		Robot.driveTrain.driveTrain.arcadeDrive(
+				OI.rightStick.getRawAxis(1) * speedScale, 
+				-OI.rightStick.getRawAxis(0));
 		
-		// Y = slow up top (4)
-		if (OI.controller.getRawButton(4)) speed = 0.65;
-		
-		Robot.shooterTop.setSpeed(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
-	@Override
 	protected boolean isFinished() {
 		return false;
-	}
-
-	// Called once after isFinished returns true
-	@Override
-	protected void end() {
-		Robot.shooterTop.setSpeed(0);
-	}
-
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
-	@Override
-	protected void interrupted() {
 	}
 }
