@@ -43,11 +43,11 @@ public class ButterflyWingsSubsystem extends Subsystem {
 	}
 	
 	public void setRightSpeed(double speed) {
-		leftWing.set(speed * MAX_SPEED);
+		rightWing.set(speed * MAX_SPEED);
 	}
 	
 	public void setLeftSpeed(double speed) {
-		rightWing.set(speed * MAX_SPEED);
+		leftWing.set(speed * MAX_SPEED);
 	}
 	
 	
